@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getUpdatedCandidates } from "~/components/player-candidate";
 import { initPlayerEntity } from "~/components/schemas";
 import type {
@@ -58,6 +58,10 @@ export default function GazerPage() {
 	const [dogScore, setDogScore] = useState(0);
 	const [catScore, setCatScore] = useState(0);
 	const [playerCandidates, setPlayerCandidates] = useState<PlayerEntity[]>([]);
+	const [openAccordionItem, setOpenAccordionItem] = useState<
+		string | undefined
+	>(undefined);
+	const accordionRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -199,10 +203,32 @@ export default function GazerPage() {
 		setCatScore(newCatScore);
 	}, [matchEvents, parsedData]);
 
+	useEffect(() => {
+		if (accordionRef.current) {
+			const lastAccordionItem = accordionRef.current.querySelector(
+				`[data-value="${matchEvents.length - 1}"]`,
+			);
+			if (lastAccordionItem) {
+				lastAccordionItem.scrollIntoView({
+					behavior: "smooth",
+					block: "start",
+				});
+				setOpenAccordionItem(String(matchEvents.length));
+			}
+		}
+	}, [matchEvents]);
+
 	return (
 		<div className="flex flex-col max-w-[62vw] mx-auto">
 			<div className="grid grid-cols-1 gap-8 flex-grow mb-20">
-				<Accordion type="single" collapsible className="w-full">
+				<Accordion
+					type="single"
+					collapsible
+					className="w-full"
+					ref={accordionRef}
+					value={openAccordionItem}
+					onValueChange={setOpenAccordionItem}
+				>
 					{[...matchEvents, { id: matchEvents.length + 1 }].map(
 						(event, index) => {
 							const isDogTeamTurn = index % 2 === 0;

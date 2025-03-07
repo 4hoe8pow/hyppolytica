@@ -16,6 +16,11 @@ import {
 	ResultCategory,
 	matchEventResolver,
 } from "~/components/schemas";
+import {
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from "~/components/ui/accordion";
 import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 import {
@@ -45,11 +50,6 @@ import {
 } from "~/components/ui/select";
 import { Separator } from "~/components/ui/separator";
 import { Switch } from "~/components/ui/switch";
-import {
-	AccordionContent,
-	AccordionItem,
-	AccordionTrigger,
-} from "~/components/ui/accordion";
 
 export type RaidFormProps = {
 	eventNumber: number;
@@ -221,7 +221,7 @@ export default function RaidForm({
 	};
 
 	return (
-		<AccordionItem value={String(eventNumber)}>
+		<AccordionItem value={String(eventNumber)} data-value={String(eventNumber)}>
 			<Card className="p-4">
 				<AccordionTrigger>
 					<CardHeader>
