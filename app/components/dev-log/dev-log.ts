@@ -201,6 +201,18 @@ export const TEXTS = {
 				startDate: "2025-03-07",
 				releaseDate: "2025-03-08",
 			},
+			{
+				id: "29",
+				text: "各種システム内連番IDの取り扱い変更",
+				startDate: "2025-03-09",
+				releaseDate: "2025-03-10",
+			},
+			{
+				id: "30",
+				text: "ローナ成立後に誰も戻ってこない不具合を解決",
+				startDate: "2025-03-10",
+				releaseDate: "2025-03-11",
+			},
 		],
 	},
 	english: {
@@ -404,6 +416,18 @@ export const TEXTS = {
 				text: "Changed the raid form to an accordion style",
 				startDate: "Mar-07-2025",
 				releaseDate: "Mar-08-2025",
+			},
+			{
+				id: "29",
+				text: "Changed the handling of sequential IDs within various systems",
+				startDate: "Mar-09-2025",
+				releaseDate: "Mar-10-2025",
+			},
+			{
+				id: "30",
+				text: "Fixed the issue where no one returns after a lona",
+				startDate: "Mar-10-2025",
+				releaseDate: "Mar-11-2025",
 			},
 		],
 	},

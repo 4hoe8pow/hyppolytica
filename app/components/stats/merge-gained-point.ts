@@ -12,7 +12,7 @@ export const mergeGainedPoints = (
 	const scoringData: ScoringDetailShareData[] = [];
 
 	for (const event of events) {
-		const raidPoint = event.gained + (event.hasBonusPoints ? 1 : 0);
+		const raidPoint = event.gained;
 		const defencePoint = event.lost;
 
 		const raider = scoringData.find(

@@ -224,10 +224,10 @@ export default function RaidForm({
 		<AccordionItem value={String(eventNumber)} data-value={String(eventNumber)}>
 			<Card className="p-4">
 				<AccordionTrigger>
-					<CardHeader>
+					<CardHeader className="w-full">
 						<div className="flex justify-between items-center w-full">
 							<CardTitle>Raid #{eventNumber + 1}</CardTitle>
-							<div className="flex items-center gap-2">
+							<div className="flex items-center gap-2 w-1/2 justify-end space-x-6">
 								<Badge
 									variant={isSuccess ? "default" : "destructive"}
 									className="text-md"

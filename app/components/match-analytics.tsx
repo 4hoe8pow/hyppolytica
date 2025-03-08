@@ -21,8 +21,11 @@ const MatchAnalytics = ({ data }: { data: MatchDataWithEvents }) => {
 			<div className="rcol-span-1 flex justify-center items-center">
 				<DefenderTransitionLine data={data} />
 			</div>
-			<div className="col-span-1 flex justify-center items-center">
+			<div className="col-span-1 row-span-2 flex justify-center items-center">
 				<MatchTable data={data} />
+			</div>
+			<div className="rcol-span-1 flex justify-center items-center">
+				<DefenderCountRadar data={data} />
 			</div>
 			<div className="col-span-1 flex justify-center items-center">
 				<ScoringSharePie data={dogTeamData} teamName={data.dogTeamName} />
@@ -35,9 +38,6 @@ const MatchAnalytics = ({ data }: { data: MatchDataWithEvents }) => {
 			</div>
 			<div className="col-span-1 flex justify-center items-center">
 				<ScoringDetailShareBar data={catTeamData} teamName={data.catTeamName} />
-			</div>
-			<div className="rcol-span-1 flex justify-center items-center">
-				<DefenderCountRadar data={data} />
 			</div>
 		</div>
 	);

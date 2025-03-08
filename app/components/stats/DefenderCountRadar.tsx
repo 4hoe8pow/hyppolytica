@@ -22,7 +22,6 @@ import {
 
 export const DefenderCountRadar = ({ data }: { data: MatchDataWithEvents }) => {
 	const transformedData = calculateDefenderTransition(data.events);
-	const maxFullMark = Math.max(...transformedData.map((d) => d.fullMark));
 	const chartConfig = {
 		gained: {
 			label: "Dog",
@@ -49,22 +48,21 @@ export const DefenderCountRadar = ({ data }: { data: MatchDataWithEvents }) => {
 				>
 					<PolarGrid />
 					<PolarAngleAxis dataKey="number" />
-					<PolarRadiusAxis angle={30} domain={[0, maxFullMark]} />
-
+					<PolarRadiusAxis angle={30} domain={[0, 7]} />
 					<ChartTooltip content={<ChartTooltipContent />} />
 					<Radar
 						name={data.dogTeamName}
 						dataKey="dog"
 						stroke="#8884d8"
 						fill="#8884d8"
-						fillOpacity={0.6}
+						fillOpacity={0.62}
 					/>
 					<Radar
 						name={data.catTeamName}
 						dataKey="cat"
 						stroke="#82ca9d"
 						fill="#82ca9d"
-						fillOpacity={0.6}
+						fillOpacity={0.62}
 					/>
 				</RadarChart>
 			</ChartContainer>

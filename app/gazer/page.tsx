@@ -116,7 +116,7 @@ export default function GazerPage() {
 
 		const eventWithSystemData: MatchEventWithSystemData = {
 			...formData,
-			id: index + 1,
+			id: index,
 			raiderName: raider.playerName,
 			raiderHeight: raider.height,
 			raiderWeight: raider.weight,
@@ -170,7 +170,7 @@ export default function GazerPage() {
 		URL.revokeObjectURL(url);
 
 		// 3. 遷移先は/match ページ
-		router.push("/match");
+		router.push("/match-report");
 	};
 
 	// ページマウント時にキャッシュからデータを取得
@@ -206,7 +206,7 @@ export default function GazerPage() {
 	useEffect(() => {
 		if (accordionRef.current) {
 			const lastAccordionItem = accordionRef.current.querySelector(
-				`[data-value="${matchEvents.length - 1}"]`,
+				`[data-value="${matchEvents.length}"]`,
 			);
 			if (lastAccordionItem) {
 				lastAccordionItem.scrollIntoView({
@@ -229,31 +229,28 @@ export default function GazerPage() {
 					value={openAccordionItem}
 					onValueChange={setOpenAccordionItem}
 				>
-					{[...matchEvents, { id: matchEvents.length + 1 }].map(
-						(event, index) => {
-							const isDogTeamTurn = index % 2 === 0;
-							getUpdatedCandidates(
-								index,
-								isDogTeamTurn,
-								matchEvents,
-								playerCandidates,
-								() => setPlayerCandidates,
-							);
+					{[...matchEvents, { id: matchEvents.length }].map((event, index) => {
+						getUpdatedCandidates(
+							index,
+							matchEvents,
+							playerCandidates,
+							() => setPlayerCandidates,
+						);
 
-							return (
-								<RaidForm
-									key={event.id}
-									playerCandidates={playerCandidates}
-									setPlayerCandidates={setPlayerCandidates}
-									eventNumber={index}
-									isDogTeamTurn={isDogTeamTurn}
-									handleCommit={(formData, gainedPoints, lostPoints) =>
-										handleCommit(formData, index, gainedPoints, lostPoints)
-									}
-								/>
-							);
-						},
-					)}
+						return (
+							<RaidForm
+								key={event.id}
+								playerCandidates={playerCandidates}
+								setPlayerCandidates={setPlayerCandidates}
+								eventNumber={index}
+								isDogTeamTurn={index % 2 === 0}
+								handleCommit={
+									(formData, gainedPoints, lostPoints) =>
+										handleCommit(formData, index, gainedPoints, lostPoints) // idは０から始まる
+								}
+							/>
+						);
+					})}
 				</Accordion>
 			</div>
 			<StatusBar
