@@ -1,52 +1,9 @@
 import { describe, expect, it } from "vitest";
-import type { MatchEventWithSystemData } from "~/components/schemas";
 import {
 	calculateDefenderTransition,
 	trackDefenderCount,
 } from "~/components/stats/track-defenders";
-
-const createMatchEvent = (
-	id: number,
-	raiderId: string,
-	isSuccess: boolean,
-	defeatedDefenderIds: string[],
-	revivedDefenderIds: string[],
-): MatchEventWithSystemData => ({
-	id,
-	raiderId,
-	isSuccess,
-	defeatedDefenderIds,
-	revivedDefenderIds,
-	hasBonusPoints: false,
-	resultCategory: undefined,
-	tackleBy: undefined,
-	timeSpentInRaid: 0,
-	raiderName: "",
-	raiderHeight: 0,
-	raiderWeight: 0,
-	raiderTeamName: "",
-	gained: 0,
-	lost: 0,
-	defeatedDefenders: defeatedDefenderIds.map((id) => ({
-		id,
-		playerName: "",
-		height: 0,
-		weight: 0,
-		jerseyNumber: 0,
-	})),
-	revivedDefenders: revivedDefenderIds.map((id) => ({
-		id,
-		playerName: "",
-		height: 0,
-		weight: 0,
-		jerseyNumber: 0,
-	})),
-	raiderJerseyNumber: 0,
-	tacklerName: "",
-	tacklerHeight: 0,
-	tacklerWeight: 0,
-	tacklerJerseyNumber: 0,
-});
+import { createMatchEvent } from "../util";
 
 describe("trackDefenderCount", () => {
 	it("should track defender counts correctly", () => {

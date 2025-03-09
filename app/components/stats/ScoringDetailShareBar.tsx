@@ -30,6 +30,10 @@ export const ScoringDetailShareBar = ({
 			label: "Defence",
 			color: "#ef4444",
 		},
+		bonusPoint: {
+			label: "Bonus",
+			color: "#f59e0b",
+		},
 	} satisfies ChartConfig;
 
 	return (
@@ -62,6 +66,13 @@ export const ScoringDetailShareBar = ({
 						name={"Raid"}
 						dataKey="raidPoint"
 						fill="var(--color-defencePoint)"
+						radius={4}
+						stackId="a"
+					/>
+					<Bar
+						name={"Bonus"}
+						dataKey="bonusPoint"
+						fill="var(--color-bonusPoint)"
 						radius={4}
 						stackId="a"
 					/>

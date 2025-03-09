@@ -7,10 +7,14 @@ import { ScoringSharePie } from "./stats/ScoringSharePie";
 
 const MatchAnalytics = ({ data }: { data: MatchDataWithEvents }) => {
 	const dogTeamEvents = data.events.filter(
-		(event) => event.raiderTeamName === data.dogTeamName,
+		(event) =>
+			(event.raiderTeamName === data.dogTeamName && event.isSuccess) ||
+			(event.raiderTeamName === data.catTeamName && !event.isSuccess),
 	);
 	const catTeamEvents = data.events.filter(
-		(event) => event.raiderTeamName === data.catTeamName,
+		(event) =>
+			(event.raiderTeamName === data.catTeamName && event.isSuccess) ||
+			(event.raiderTeamName === data.dogTeamName && !event.isSuccess),
 	);
 
 	const dogTeamData = { ...data, events: dogTeamEvents };
