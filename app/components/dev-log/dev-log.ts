@@ -2,30 +2,17 @@ export const TEXTS = {
 	japanese: {
 		title: "開発状況の進捗",
 		currentStatus: "着手中の課題",
-		currentStatusDescription: [
-			{
-				id: "1",
-				text: "アナリティクスビューの構築",
-				startDate: "2025-03-04",
-				releaseDate: "2025-03-13",
-			},
-		],
+		currentStatusDescription: [],
 		futurePlans: "未着手の課題",
 		futurePlansDescription: [
 			{
 				id: "1",
-				text: "前半後半の概念の追加",
-				startDate: "2025-03-04",
-				releaseDate: "TBD",
-			},
-			{
-				id: "2",
 				text: "サイドバーの高さレイアウトが定まらない",
 				startDate: "2025-03-08",
 				releaseDate: "TBD",
 			},
 			{
-				id: "3",
+				id: "2",
 				text: "3rdレイドの概念の追加",
 				startDate: "2025-03-08",
 				releaseDate: "TBD",
@@ -213,35 +200,34 @@ export const TEXTS = {
 				startDate: "2025-03-10",
 				releaseDate: "2025-03-11",
 			},
+			{
+				id: "31",
+				text: "アナリティクスビューの構築",
+				startDate: "2025-03-04",
+				releaseDate: "2025-03-10",
+			},
+			{
+				id: "32",
+				text: "前半後半の概念の追加",
+				startDate: "2025-03-04",
+				releaseDate: "-",
+			},
 		],
 	},
 	english: {
 		title: "Development Status",
 		currentStatus: "Ongoing Issues",
-		currentStatusDescription: [
-			{
-				id: "1",
-				text: "Building the analytics view",
-				startDate: "Mar-04-2025",
-				releaseDate: "Mar-13-2025",
-			},
-		],
+		currentStatusDescription: [],
 		futurePlans: "Pending Issues",
 		futurePlansDescription: [
 			{
 				id: "1",
-				text: "Adding the concept of first and second halves",
-				startDate: "Mar-04-2025",
-				releaseDate: "TBD",
-			},
-			{
-				id: "2",
 				text: "Fixing the sidebar height layout",
 				startDate: "Mar-08-2025",
 				releaseDate: "TBD",
 			},
 			{
-				id: "3",
+				id: "2",
 				text: "Adding the concept of the 3rd raid",
 				startDate: "Mar-08-2025",
 				releaseDate: "TBD",
@@ -428,6 +414,18 @@ export const TEXTS = {
 				text: "Fixed the issue where no one returns after a lona",
 				startDate: "Mar-10-2025",
 				releaseDate: "Mar-11-2025",
+			},
+			{
+				id: "31",
+				text: "Building the analytics view",
+				startDate: "Mar-04-2025",
+				releaseDate: "Mar-10-2025",
+			},
+			{
+				id: "32",
+				text: "Adding the concept of first and second halves",
+				startDate: "Mar-04-2025",
+				releaseDate: "-",
 			},
 		],
 	},

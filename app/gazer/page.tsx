@@ -220,6 +220,9 @@ export default function GazerPage() {
 
 	return (
 		<div className="flex flex-col max-w-[62vw] mx-auto">
+			<p className="py-4 font-bold text-center">
+				PLEASE ENTER DATA FOR EITHER THE FIRST HALF OR THE SECOND HALF ONLY.
+			</p>
 			<div className="grid grid-cols-1 gap-8 flex-grow mb-20">
 				<Accordion
 					type="single"

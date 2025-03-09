@@ -36,8 +36,8 @@ export const DefenderCountRadar = ({ data }: { data: MatchDataWithEvents }) => {
 	return (
 		<Card className="mx-auto aspect-auto size-full">
 			<CardHeader>
-				<CardTitle>守備安定傾向</CardTitle>
-				<CardDescription>January - June 2024</CardDescription>
+				<CardTitle>守備動態傾向</CardTitle>
+				<CardDescription>アンティ実施人数の回数</CardDescription>
 			</CardHeader>
 			<ChartContainer config={chartConfig}>
 				<RadarChart

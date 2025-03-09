@@ -7,10 +7,14 @@ import { ScoringSharePie } from "./stats/ScoringSharePie";
 
 const MatchAnalytics = ({ data }: { data: MatchDataWithEvents }) => {
 	const dogTeamEvents = data.events.filter(
-		(event) => event.raiderTeamName === data.dogTeamName,
+		(event) =>
+			(event.raiderTeamName === data.dogTeamName && event.isSuccess) ||
+			(event.raiderTeamName === data.catTeamName && !event.isSuccess),
 	);
 	const catTeamEvents = data.events.filter(
-		(event) => event.raiderTeamName === data.catTeamName,
+		(event) =>
+			(event.raiderTeamName === data.catTeamName && event.isSuccess) ||
+			(event.raiderTeamName === data.dogTeamName && !event.isSuccess),
 	);
 
 	const dogTeamData = { ...data, events: dogTeamEvents };
@@ -18,13 +22,13 @@ const MatchAnalytics = ({ data }: { data: MatchDataWithEvents }) => {
 
 	return (
 		<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-			<div className="rcol-span-1 flex justify-center items-center">
+			<div className="col-span-1 flex justify-center items-center">
 				<DefenderTransitionLine data={data} />
 			</div>
 			<div className="col-span-1 row-span-2 flex justify-center items-center">
 				<MatchTable data={data} />
 			</div>
-			<div className="rcol-span-1 flex justify-center items-center">
+			<div className="col-span-1 flex justify-center items-center">
 				<DefenderCountRadar data={data} />
 			</div>
 			<div className="col-span-1 flex justify-center items-center">
